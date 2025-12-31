@@ -801,6 +801,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Example: confirm script loaded
     console.log("Debug log ready!");
 });
+        .catch((error) => {
+    // Log full error details
+    console.error("EmailJS Error:", error);          // raw object
+    console.error("EmailJS Error (stringified):", JSON.stringify(error)); // readable
+    alert("Oops! Something went wrong. Please check the debug log at the bottom.");
+});
 </script>
 </body>
 </html>
