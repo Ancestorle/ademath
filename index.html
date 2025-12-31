@@ -766,6 +766,41 @@
 
     
     </script>
-    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Create debug log container
+    let logDiv = document.createElement("div");
+    logDiv.id = "debugLog";
+    logDiv.style.position = "fixed";
+    logDiv.style.bottom = "0";
+    logDiv.style.left = "0";
+    logDiv.style.width = "100%";
+    logDiv.style.maxHeight = "150px";
+    logDiv.style.overflowY = "auto";
+    logDiv.style.background = "#222";
+    logDiv.style.color = "#fff";
+    logDiv.style.fontSize = "12px";
+    logDiv.style.padding = "5px";
+    logDiv.style.zIndex = "9999";
+    document.body.appendChild(logDiv);
+
+    // Function to log messages
+    function logMessage(msg) {
+        const p = document.createElement("p");
+        p.textContent = msg;
+        logDiv.appendChild(p);
+    }
+
+    // Override console.log and console.error
+    console.log = logMessage;
+    console.error = logMessage;
+
+    // Also override alert for testing
+    window.alert = logMessage;
+
+    // Example: confirm script loaded
+    console.log("Debug log ready!");
+});
+</script>
 </body>
 </html>
