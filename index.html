@@ -735,6 +735,37 @@
 
         // Initialize with default videos hidden until visited to save load time, 
         // or load immediately if preferred. Here we wait for navigation.
+   
+  // Override alert to log errors in the page
+  function logMessage(msg) {
+      let logDiv = document.getElementById("debugLog");
+      if(!logDiv) {
+          logDiv = document.createElement("div");
+          logDiv.id = "debugLog";
+          logDiv.style.position = "fixed";
+          logDiv.style.bottom = "0";
+          logDiv.style.left = "0";
+          logDiv.style.width = "100%";
+          logDiv.style.maxHeight = "150px";
+          logDiv.style.overflowY = "auto";
+          logDiv.style.background = "#222";
+          logDiv.style.color = "#fff";
+          logDiv.style.fontSize = "12px";
+          logDiv.style.padding = "5px";
+          logDiv.style.zIndex = "9999";
+          document.body.appendChild(logDiv);
+      }
+      const p = document.createElement("p");
+      p.textContent = msg;
+      logDiv.appendChild(p);
+  }
+
+  // Replace all console.log & console.error
+  console.log = logMessage;
+  console.error = logMessage;
+
+    
     </script>
+    
 </body>
 </html>
