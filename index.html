@@ -254,10 +254,21 @@
     btn.disabled = true;
 
     // WhatsApp Formatting
-    const adminNumber = "2349131778249"; 
-    const message = `HELLO AMTA 👋%0AMy name is *${encodeURIComponent(name)}*.%0AI just registered for the *${encodeURIComponent(exam)}* class.%0A%0A📧 Email: ${encodeURIComponent(email)}%0A📞 Phone: ${encodeURIComponent(phone)}%0A%0APlease confirm my registration.`;
-    const whatsappURL = `https://wa.me/${adminNumber}?text=${message}`;
+    
+const adminNumber = "2349131778249";
 
+const rawMessage = `
+Hello AMTA 👋
+My name is ${name}.
+I just registered for the ${exam} class.
+
+📧 Email: ${email}
+📞 Phone: ${phone}
+
+Please confirm my registration.
+`;
+
+const whatsappURL = `https://wa.me/${adminNumber}?text=${encodeURIComponent(rawMessage)}`;
     const params = { full_name: name, email: email, phone: phone, exam: exam };
 
     // Use a timeout or catch block to ensure the button resets
@@ -281,3 +292,6 @@
     </script>
 </body>
 </html>
+
+
+
