@@ -250,11 +250,11 @@
     const phone = document.getElementById("phone").value;
     const exam  = document.getElementById("examType").value;
 
-    btn.innerText = "Processing...";
+    btn.innerText = "Processing....";
     btn.disabled = true;
 
     // WhatsApp Formatting
-    const adminNumber = "2349072175804"; 
+    const adminNumber = "2349131778249"; 
     const message = `HELLO AMTA 👋%0AMy name is *${encodeURIComponent(name)}*.%0AI just registered for the *${encodeURIComponent(exam)}* class.%0A%0A📧 Email: ${encodeURIComponent(email)}%0A📞 Phone: ${encodeURIComponent(phone)}%0A%0APlease confirm my registration.`;
     const whatsappURL = `https://wa.me/${adminNumber}?text=${message}`;
 
